@@ -1,6 +1,7 @@
 const rgbColorText = document.getElementById('rgb-color');
 const balls = document.getElementsByClassName('ball');
 const answerText = document.getElementById('answer');
+const btnReset = document.getElementById('reset-game');
 
 function colorGenerator() {
   const red = Math.floor(Math.random() * 255) + 1;
@@ -38,3 +39,7 @@ function guessBall(event) {
 for (let index = 0; index < balls.length; index += 1) {
   balls[index].addEventListener('click', guessBall);
 }
+
+btnReset.addEventListener('click', () => {
+  window.location.reload();
+});
