@@ -1,0 +1,12 @@
+#ball-container {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.ball {
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  background-color: aquamarine;
+}
