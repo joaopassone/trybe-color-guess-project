@@ -28,7 +28,19 @@ function pickColor() {
 
 pickColor();
 
+function selectedBall(ball) {
+  const selected = document.getElementsByClassName('selected')[0];
+  if (ball.className.includes('selected')) {
+    return;
+  }
+  if (selected) {
+    selected.classList.remove('selected');
+  }
+  ball.classList.add('selected');
+}
+
 function guessBall(event) {
+  selectedBall(event.target);
   const clickedBallColor = event.target.style.backgroundColor.slice(3);
   if (clickedBallColor === rgbColorText.innerText) {
     answerText.innerText = 'Acertou!';
@@ -46,4 +58,8 @@ btnReset.addEventListener('click', () => {
   colorBalls();
   pickColor();
   answerText.innerText = 'Escolha uma cor';
+  const selected = document.getElementsByClassName('selected')[0];
+  if (selected) {
+    selected.classList.remove('selected');
+  }
 });
