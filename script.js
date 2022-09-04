@@ -16,3 +16,11 @@ function colorBalls() {
 }
 
 colorBalls();
+
+function pickColor() {
+  const index = Math.floor(Math.random() * 6) + 1;
+  const pickedColor = balls[index].style.backgroundColor;
+  rgbColorText.innerText = pickedColor.slice(3);
+}
+
+pickColor();
