@@ -2,6 +2,7 @@ const rgbColorText = document.getElementById('rgb-color');
 const balls = document.getElementsByClassName('ball');
 const answerText = document.getElementById('answer');
 const btnReset = document.getElementById('reset-game');
+const score = document.getElementById('score');
 
 function colorGenerator() {
   const red = Math.floor(Math.random() * 255) + 1;
@@ -31,6 +32,7 @@ function guessBall(event) {
   const clickedBallColor = event.target.style.backgroundColor.slice(3);
   if (clickedBallColor === rgbColorText.innerText) {
     answerText.innerText = 'Acertou!';
+    score.innerText = `${parseInt(score.innerText, 10) + 3}`;
   } else {
     answerText.innerText = 'Errou! Tente novamente!';
   }
@@ -41,5 +43,7 @@ for (let index = 0; index < balls.length; index += 1) {
 }
 
 btnReset.addEventListener('click', () => {
-  window.location.reload();
+  colorBalls();
+  pickColor();
+  answerText.innerText = 'Escolha uma cor';
 });
